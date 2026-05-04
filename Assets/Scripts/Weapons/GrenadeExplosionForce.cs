@@ -1,0 +1,49 @@
+using System.Collections;
+using UnityEngine;
+
+public class GrenadeExplosionForce : MonoBehaviour
+{
+    public float tiempoExplosion = 3f;
+    public float fuerzaExplosion = 700f;
+    public float radioExplosion = 5f;
+    public float fuerzaVertical = 2000f;
+
+    public GameObject explosionPrefab;
+
+    void Start()
+    {
+        StartCoroutine(Temporizador());
+    }
+
+    IEnumerator Temporizador()
+    {
+        yield return new WaitForSeconds(tiempoExplosion);
+        Explode();
+    }
+
+    void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radioExplosion);
+
+        foreach (Collider nearbyObject in colliders)
+        {
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+
+            if (rb != null && !rb.isKinematic)
+            {
+                rb.AddExplosionForce(fuerzaExplosion, transform.position, radioExplosion, fuerzaVertical, ForceMode.Impulse);
+            }
+
+        }
+        GameObject fx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(fx, 2);
+        Destroy(gameObject);
+
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radioExplosion);
+    }
+
+}
