@@ -3004,7 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b481f28a5119fae43a0197a943602a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  mouseSensitivity: 100
+  mouseSensitivity: 50
   playerBody: {fileID: 750223452}
 --- !u!1 &1762855560
 GameObject:
