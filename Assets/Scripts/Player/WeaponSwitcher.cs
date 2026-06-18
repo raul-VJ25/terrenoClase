@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
@@ -7,6 +8,9 @@ public class WeaponSwitcher : MonoBehaviour
 
     private int _currentWeaponIndex = 0;
     private IPlayerInput _input;
+
+    // ✅ Nuevo evento para el HUD
+    public event Action<Weapon> OnWeaponChanged;
 
     private void Awake()
     {
@@ -47,10 +51,7 @@ public class WeaponSwitcher : MonoBehaviour
         else if (scrollValue < 0)
         {
             _currentWeaponIndex--;
-            if (_currentWeaponIndex < 0)
-            {
-                _currentWeaponIndex = weapons.Length - 1;
-            }
+            if (_currentWeaponIndex < 0) _currentWeaponIndex = weapons.Length - 1;
         }
 
         EquipWeapon(_currentWeaponIndex);
@@ -72,6 +73,13 @@ public class WeaponSwitcher : MonoBehaviour
         }
 
         weapons[index].ResetAnimation();
+
+        // ✅ Avisamos al arma que ha sido equipada (para que actualice el HUD)
+        weapons[index].OnEquip();
+
+        // ✅ Avisamos al HUD que ha cambiado el arma
+        OnWeaponChanged?.Invoke(weapons[index]);
+
         Debug.Log($"Arma equipada: {weapons[index].WeaponName}");
     }
 }
