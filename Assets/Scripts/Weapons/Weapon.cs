@@ -69,7 +69,7 @@ public abstract class Weapon : MonoBehaviour
 
     private IEnumerator ReloadCoroutine()
     {
-        yield return new WaitForSeconds(5f); // 5 segundos de recarga
+        yield return new WaitForSeconds(3.2f); // 5 segundos de recarga
 
         currentAmmo = maxAmmo;
         isReloading = false;
