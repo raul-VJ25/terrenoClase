@@ -13,21 +13,16 @@ public class MeleeWeapon : Weapon
     private void Start()
     {
         anim = GetComponent<Animator>();
-        // ✅ Forzamos idle al inicio
-        if (anim != null)
-        {
-            anim.Play("idle", 0, 0f);
-        }
     }
 
-    // ✅ NUEVO: Se llama cuando el arma se activa
+    // ✅ Se llama automáticamente cada vez que el arma se activa (SetActive(true))
     private void OnEnable()
     {
         if (anim != null)
         {
-            // Forzamos el estado idle inmediatamente
-            anim.Play("idle", 0, 0f);
-            anim.Update(0f);
+            // Reinicia el Animator a su estado base por defecto
+            anim.Rebind();
+            anim.Update(0f); // Fuerza la actualización inmediata
         }
     }
 
@@ -66,8 +61,8 @@ public class MeleeWeapon : Weapon
     {
         if (anim != null)
         {
-            // ✅ Reset completo de la animación
-            anim.Play("idle", 0, 0f);
+            // ✅ Reinicio total del Animator
+            anim.Rebind();
             anim.Update(0f);
             anim.ResetTrigger("accion");
         }

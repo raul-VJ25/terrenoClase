@@ -87,7 +87,7 @@ public abstract class Weapon : MonoBehaviour
 
     private IEnumerator ReloadCoroutine()
     {
-        yield return new WaitForSeconds(3.2f);
+        yield return new WaitForSeconds(3.1f);
 
         currentAmmo = maxAmmo;
         isReloading = false;
