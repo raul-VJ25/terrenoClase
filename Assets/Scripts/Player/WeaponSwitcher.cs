@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponSwitcher : MonoBehaviour
 {
     [Header("Arsenal")]
-    [SerializeField] private Weapon[] weapons;
+    public Weapon[] weapons;
 
     private int _currentWeaponIndex = 0;
     private IPlayerInput _input;
 
-    // ✅ Nuevo evento para el HUD
+    // ✅ NUEVO: Evento para notificar al HUD
     public event Action<Weapon> OnWeaponChanged;
 
     private void Awake()
@@ -42,19 +43,18 @@ public class WeaponSwitcher : MonoBehaviour
 
     private void HandleSwitchWeapon(float scrollValue)
     {
-        if (weapons.Length == 0) return;
-
         if (scrollValue > 0)
         {
             _currentWeaponIndex = (_currentWeaponIndex + 1) % weapons.Length;
+            EquipWeapon(_currentWeaponIndex);
         }
         else if (scrollValue < 0)
         {
             _currentWeaponIndex--;
-            if (_currentWeaponIndex < 0) _currentWeaponIndex = weapons.Length - 1;
+            if (_currentWeaponIndex < 0)
+                _currentWeaponIndex = weapons.Length - 1;
+            EquipWeapon(_currentWeaponIndex);
         }
-
-        EquipWeapon(_currentWeaponIndex);
     }
 
     private void HandleShoot()
@@ -65,19 +65,45 @@ public class WeaponSwitcher : MonoBehaviour
         }
     }
 
+    public void OnSwitchWeapon(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            float scrollValue = context.ReadValue<float>();
+            if (scrollValue > 0)
+            {
+                _currentWeaponIndex = (_currentWeaponIndex + 1) % weapons.Length;
+                EquipWeapon(_currentWeaponIndex);
+            }
+            else if (scrollValue < 0)
+            {
+                _currentWeaponIndex--;
+                if (_currentWeaponIndex < 0) _currentWeaponIndex = weapons.Length - 1;
+                EquipWeapon(_currentWeaponIndex);
+            }
+        }
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed && weapons.Length > 0)
+        {
+            weapons[_currentWeaponIndex].TryAttack();
+        }
+    }
+
     private void EquipWeapon(int index)
     {
         for (int i = 0; i < weapons.Length; i++)
         {
-            weapons[i].gameObject.SetActive(i == index);
+            weapons[i].gameObject.SetActive(false);
         }
 
+        weapons[index].gameObject.SetActive(true);
         weapons[index].ResetAnimation();
-
-        // ✅ Avisamos al arma que ha sido equipada (para que actualice el HUD)
         weapons[index].OnEquip();
 
-        // ✅ Avisamos al HUD que ha cambiado el arma
+        // ✅ Notificar al HUD del cambio de arma
         OnWeaponChanged?.Invoke(weapons[index]);
 
         Debug.Log($"Arma equipada: {weapons[index].WeaponName}");

@@ -189,8 +189,8 @@ FixedJoint:
   serializedVersion: 1
   m_ConnectedBody: {fileID: 567847225860031349}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 400
+  m_BreakTorque: 400
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 2108502953394934403}
   - component: {fileID: 2114573118400387884}
   - component: {fileID: 4562899746020479943}
+  - component: {fileID: 8892307994966507574}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Untagged
@@ -335,6 +336,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!138 &8892307994966507574
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001480300553635868}
+  serializedVersion: 1
+  m_ConnectedBody: {fileID: 567847225860031349}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 400
+  m_BreakTorque: 400
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &2180128820066087445
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,8 +505,8 @@ FixedJoint:
   serializedVersion: 1
   m_ConnectedBody: {fileID: 567847225860031349}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 400
+  m_BreakTorque: 400
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -643,10 +660,10 @@ FixedJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5793686425861287095}
   serializedVersion: 1
-  m_ConnectedBody: {fileID: 4562899746020479943}
+  m_ConnectedBody: {fileID: 6677841142339557745}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 400
+  m_BreakTorque: 400
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -664,7 +681,6 @@ GameObject:
   - component: {fileID: 6332446735348963280}
   - component: {fileID: 839625355750159496}
   - component: {fileID: 6677841142339557745}
-  - component: {fileID: 6858726767551396542}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -792,19 +808,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!138 &6858726767551396542
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7415527570716732824}
-  serializedVersion: 1
-  m_ConnectedBody: {fileID: 567847225860031349}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1

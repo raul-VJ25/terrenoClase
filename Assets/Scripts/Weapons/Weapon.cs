@@ -10,15 +10,17 @@ public abstract class Weapon : MonoBehaviour
 
     [Header("Ammo Settings")]
     [SerializeField] protected int maxAmmo = 30;
-    [SerializeField] protected bool usesAmmo = true; // ✅ Ponlo en FALSE para el cuchillo
+    [SerializeField] protected bool usesAmmo = true;
 
     protected int currentAmmo;
     protected float nextFireTime = 0f;
     protected bool isReloading = false;
+    private Coroutine _reloadCoroutine;
 
-    // Eventos para notificar al HUD (Principio de Inversión de Dependencias)
-    public event Action<int, int, bool> OnAmmoChanged; // currentAmmo, maxAmmo, isReloading
+    // Eventos para notificar al HUD
+    public event Action<int, int, bool> OnAmmoChanged;
 
+    // ✅ Propiedad pública para acceder al nombre
     public string WeaponName => weaponName;
     public int CurrentAmmo => currentAmmo;
     public int MaxAmmo => maxAmmo;
@@ -30,9 +32,14 @@ public abstract class Weapon : MonoBehaviour
         currentAmmo = maxAmmo;
     }
 
+    private void OnDisable()
+    {
+        CancelReload();
+    }
+
     public virtual void TryAttack()
     {
-        if (isReloading) return; // No puede disparar mientras recarga
+        if (isReloading) return;
 
         if (usesAmmo && currentAmmo <= 0)
         {
@@ -64,21 +71,33 @@ public abstract class Weapon : MonoBehaviour
 
         isReloading = true;
         OnAmmoChanged?.Invoke(currentAmmo, maxAmmo, isReloading);
-        StartCoroutine(ReloadCoroutine());
+        _reloadCoroutine = StartCoroutine(ReloadCoroutine());
     }
 
-    private IEnumerator ReloadCoroutine()
+    public void CancelReload()
     {
-        yield return new WaitForSeconds(3.2f); // 5 segundos de recarga
-
-        currentAmmo = maxAmmo;
+        if (_reloadCoroutine != null)
+        {
+            StopCoroutine(_reloadCoroutine);
+            _reloadCoroutine = null;
+        }
         isReloading = false;
         OnAmmoChanged?.Invoke(currentAmmo, maxAmmo, isReloading);
     }
 
-    // Llamado por el WeaponSwitcher cuando se equipa el arma
+    private IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(3.2f);
+
+        currentAmmo = maxAmmo;
+        isReloading = false;
+        _reloadCoroutine = null;
+        OnAmmoChanged?.Invoke(currentAmmo, maxAmmo, isReloading);
+    }
+
     public void OnEquip()
     {
+        CancelReload();
         OnAmmoChanged?.Invoke(currentAmmo, maxAmmo, isReloading);
     }
 
