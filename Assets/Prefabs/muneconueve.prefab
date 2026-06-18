@@ -32,8 +32,6 @@ Transform:
   - {fileID: 8365060990356772957}
   - {fileID: 1027739979923392429}
   - {fileID: 7217782744534712801}
-  - {fileID: 5254665000120154187}
-  - {fileID: 279332771122250303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1516520906979932940
@@ -51,7 +49,7 @@ GameObject:
   - component: {fileID: 270317011785307389}
   - component: {fileID: 4465964029933719751}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: b1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,11 +64,11 @@ Transform:
   m_GameObject: {fileID: 1516520906979932940}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6237838, y: -0, z: -0, w: 0.7815969}
-  m_LocalPosition: {x: 0.3006611, y: 0.12713993, z: -0.44741917}
-  m_LocalScale: {x: 0.21, y: 0.43, z: 0.21}
+  m_LocalPosition: {x: -0.049246166, y: 0.069108315, z: -0.81089246}
+  m_LocalScale: {x: 0.25022042, y: 0.5123561, z: 0.25022042}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7226125630822922688}
+  m_Father: {fileID: 1027739979923392429}
   m_LocalEulerAnglesHint: {x: 77.186, y: 0, z: 0}
 --- !u!33 &7101042845949315614
 MeshFilter:
@@ -160,7 +158,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516520906979932940}
   serializedVersion: 5
-  m_Mass: 20
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -189,8 +187,8 @@ FixedJoint:
   serializedVersion: 1
   m_ConnectedBody: {fileID: 567847225860031349}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: 400
-  m_BreakTorque: 400
+  m_BreakForce: 2000
+  m_BreakTorque: 2000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -210,7 +208,7 @@ GameObject:
   - component: {fileID: 4562899746020479943}
   - component: {fileID: 8892307994966507574}
   m_Layer: 0
-  m_Name: Sphere (3)
+  m_Name: arriba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +315,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001480300553635868}
   serializedVersion: 5
-  m_Mass: 100
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -346,8 +344,8 @@ FixedJoint:
   serializedVersion: 1
   m_ConnectedBody: {fileID: 567847225860031349}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: 400
-  m_BreakTorque: 400
+  m_BreakForce: 4000
+  m_BreakTorque: 4000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -367,7 +365,7 @@ GameObject:
   - component: {fileID: 2606525428067730845}
   - component: {fileID: 3592870470047311753}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: b2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,11 +380,11 @@ Transform:
   m_GameObject: {fileID: 2180128820066087445}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6237841, y: -0, z: -0, w: 0.7815967}
-  m_LocalPosition: {x: 0.3006611, y: 0.11813998, z: 0.94958067}
-  m_LocalScale: {x: 0.21, y: 0.43, z: 0.21}
+  m_LocalPosition: {x: -0.049246166, y: 0.058384653, z: 0.8536689}
+  m_LocalScale: {x: 0.25022042, y: 0.5123561, z: 0.25022042}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7226125630822922688}
+  m_Father: {fileID: 1027739979923392429}
   m_LocalEulerAnglesHint: {x: -77.186, y: 0, z: 0}
 --- !u!33 &8103977423158241606
 MeshFilter:
@@ -476,7 +474,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2180128820066087445}
   serializedVersion: 5
-  m_Mass: 20
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -505,8 +503,8 @@ FixedJoint:
   serializedVersion: 1
   m_ConnectedBody: {fileID: 567847225860031349}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: 400
-  m_BreakTorque: 400
+  m_BreakForce: 2000
+  m_BreakTorque: 2000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -526,7 +524,7 @@ GameObject:
   - component: {fileID: 567847225860031349}
   - component: {fileID: 6441220517861737068}
   m_Layer: 0
-  m_Name: Sphere (2)
+  m_Name: medio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +542,9 @@ Transform:
   m_LocalPosition: {x: 0.34199142, y: 0.06914008, z: 0.23313046}
   m_LocalScale: {x: 0.83926, y: 0.83926, z: 0.83926}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 5254665000120154187}
+  - {fileID: 279332771122250303}
   m_Father: {fileID: 7226125630822922688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7077563189813433756
@@ -662,8 +662,8 @@ FixedJoint:
   serializedVersion: 1
   m_ConnectedBody: {fileID: 6677841142339557745}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: 400
-  m_BreakTorque: 400
+  m_BreakForce: 5000
+  m_BreakTorque: 5000
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 839625355750159496}
   - component: {fileID: 6677841142339557745}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: abajo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -789,7 +789,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7415527570716732824}
   serializedVersion: 5
-  m_Mass: 100
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
