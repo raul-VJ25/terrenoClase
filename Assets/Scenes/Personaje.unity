@@ -2273,7 +2273,7 @@ MonoBehaviour:
   damage: 20
   range: 100
   impactForce: 360
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 1648045557}
 --- !u!1 &1386717183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3831253841946461455, guid: e15de165a98109640a85c5aebb00910c, type: 3}
