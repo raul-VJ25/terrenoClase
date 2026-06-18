@@ -3,47 +3,48 @@ using UnityEngine;
 
 public class GrenadeExplosionForce : MonoBehaviour
 {
-    public float tiempoExplosion = 3f;
-    public float fuerzaExplosion = 700f;
-    public float radioExplosion = 5f;
-    public float fuerzaVertical = 2000f;
-
-    public GameObject explosionPrefab;
+    [SerializeField] private float explosionTime = 3f;
+    [SerializeField] private float explosionForce = 700f;
+    [SerializeField] private float explosionRadius = 5f;
+    [SerializeField] private float upwardForce = 2000f;
+    [SerializeField] private GameObject explosionPrefab;
 
     void Start()
     {
-        StartCoroutine(Temporizador());
+        StartCoroutine(ExplosionTimer());
     }
 
-    IEnumerator Temporizador()
+    IEnumerator ExplosionTimer()
     {
-        yield return new WaitForSeconds(tiempoExplosion);
+        yield return new WaitForSeconds(explosionTime);
         Explode();
     }
 
     void Explode()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radioExplosion);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         foreach (Collider nearbyObject in colliders)
         {
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-
             if (rb != null && !rb.isKinematic)
             {
-                rb.AddExplosionForce(fuerzaExplosion, transform.position, radioExplosion, fuerzaVertical, ForceMode.Impulse);
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius, upwardForce, ForceMode.Impulse);
             }
-
         }
-        GameObject fx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(fx, 2);
-        Destroy(gameObject);
 
+        if (explosionPrefab != null)
+        {
+            GameObject fx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(fx, 2f);
+        }
+
+        Destroy(gameObject);
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radioExplosion);
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
-
 }

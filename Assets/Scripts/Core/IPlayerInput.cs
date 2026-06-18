@@ -5,7 +5,6 @@ public interface IPlayerInput
 {
     Vector2 MoveInput { get; }
     Vector2 LookInput { get; }
-
     bool isJumping { get; }
     bool isRunning { get; }
 

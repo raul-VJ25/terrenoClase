@@ -1156,7 +1156,7 @@ GameObject:
   - component: {fileID: 750223456}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1199,10 +1199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76220a4253c3de4488429e9a049493e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputReader
-  MoveValue: {x: 0, y: 0}
-  LookValue: {x: 0, y: 0}
-  JumpValue: 0
-  SprintValue: 0
 --- !u!143 &750223454
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1248,7 +1244,6 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  _isGrounded: 0
 --- !u!114 &750223456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,6 +2371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatsuneMiku
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 69399e2e86e33334db0961f7808ad1ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: 69399e2e86e33334db0961f7808ad1ef, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.000006376246
@@ -2723,8 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b481f28a5119fae43a0197a943602a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  mouseSensitivity: 30
-  input: {fileID: 750223453}
+  mouseSensitivity: 100
   playerBody: {fileID: 750223452}
 --- !u!1 &1762855560
 GameObject:

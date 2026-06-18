@@ -3,11 +3,12 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [Header("Weapon Settings")]
-    public string weaponName;
-    public float fireRate = 0.5f;
-    protected float nextFireTime = 0f;
+    [SerializeField] protected string weaponName;
+    [SerializeField] private float fireRate = 0.5f;
 
-    // Método que el jugador llamará
+    protected float nextFireTime = 0f;
+    public string WeaponName => weaponName;
+
     public virtual void TryAttack()
     {
         if (Time.time >= nextFireTime)
@@ -17,8 +18,6 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
-    // Cada arma específica definirá CÓMO ataca aquí
     protected abstract void PerformAttack();
-
     public abstract void ResetAnimation();
 }
