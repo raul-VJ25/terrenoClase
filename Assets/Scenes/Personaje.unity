@@ -5035,7 +5035,7 @@ MonoBehaviour:
   usesAmmo: 1
   damage: 20
   range: 100
-  impactForce: 360
+  impactForce: 200
   cameraTransform: {fileID: 1648045557}
 --- !u!95 &1386717185
 Animator:
@@ -7317,7 +7317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.88894
+      value: 33.6496
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7325,7 +7325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.37
+      value: -15.18
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7671,7 +7671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.80934
+      value: 33.57
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7679,7 +7679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.60358
+      value: -6.62
       objectReference: {fileID: 0}
     - target: {fileID: 7226125630822922688, guid: b7cf06b98cf62f34cafcec9a88aaf118, type: 3}
       propertyPath: m_LocalRotation.w

@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrenadeExplosionForce
   explosionTime: 3
-  explosionForce: 400
+  explosionForce: 600
   explosionRadius: 5
-  upwardForce: 600
+  upwardForce: 800
   explosionPrefab: {fileID: 5481530993414605263, guid: 7a12b40fb78f3694ea3ba5830db032b4, type: 3}
 --- !u!1 &3117563392815029440
 GameObject:
