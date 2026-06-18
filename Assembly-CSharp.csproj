@@ -50,17 +50,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Player\IPlayerInput.cs" />
+    <Compile Include="Assets\Scripts\Player\WeaponSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Input\PlayerInputReader.cs" />
     <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerInputReader.cs" />
+    <Compile Include="Assets\Scripts\Core\IPlayerInput.cs" />
     <Compile Include="Assets\Scripts\Weapons\HitscanWeapon.cs" />
     <Compile Include="Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PT_MouseLook.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Weapons\ParabolicWeapon.cs" />
-    <Compile Include="Assets\Scripts\Weapons\GrenadeExplosionForce.cs" />
+    <Compile Include="Assets\Scripts\Effects\GrenadeExplosionForce.cs" />
     <Compile Include="Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PT_PlayerMovement.cs" />
     <Compile Include="Assets\ModularFirstPersonController\FirstPersonController\FirstPersonController.cs" />
-    <Compile Include="Assets\Scripts\Weapons\WeaponSwitcher.cs" />
     <Compile Include="Assets\FPSinput.cs" />
     <Compile Include="Assets\Scripts\Weapons\MeleeWeapon.cs" />
   </ItemGroup>
